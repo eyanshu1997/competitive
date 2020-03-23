@@ -101,7 +101,16 @@ void deleteposition(Node **no,int pos)
 		n=n->next;
 	}
 }
-
+int getlength(Node *head)
+{
+	int count=0;
+	while(head!=NULL)
+	{
+		count++;
+		head=head->next;	
+	}
+	return count;
+}
 int main()
 {
 	Node *head=NULL;
@@ -115,5 +124,6 @@ int main()
 	//deletenode(&head,5);
 	deleteposition(&head,3);
 	printlist(head);
+	cout<<"length is : "<<getlength(head)<<"\n";
 	return 0;
 }
