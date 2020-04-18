@@ -1,13 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int caltrain(vector<pair<int,int>> t)
 {
 	sort(t.begin(),t.end());
 	int max=INT_MIN;
 	int sum=0;
-	for(auto a:t)
+	for(auto a=t.begin();a!=t.end();a++)
 	{
-		sum+=a.second;
+		if((*a).first==(*(a+1)).first&&(*(a+1)).second==1)
+		{
+			sum+=1;
+			if(sum>max)
+				max=sum;
+			sum+=(*a).second;
+			if(sum>max)
+				max=sum;
+			a++;
+			continue;
+		}
+		sum+=(*a).second;
 		if(sum>max)
 			max=sum;
 	}

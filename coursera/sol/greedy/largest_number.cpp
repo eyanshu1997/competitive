@@ -9,25 +9,19 @@ using std::string;
 bool cmp(string a,string b)
 {
 	int i=0;
-	int x=a.size()<b.size()?a.size():b.size();
-	while(i<x)
+	string ab=a+b;
+	string ba=b+a;
+	while(i<ab.size())
 	{
-		if(a[i]>b[i])
-			return true;
+		if(ab[i]==ba[i])
+			i++;
 		else
-			if(a[i]<b[i])
+			if(ab[i]<ba[i])
 				return false;
 			else
-				i++;
+				return true;
 	}
-	if(a.size()>=b.size())
-	{		
-		return false;
-	}	
-	else
-	{
-		return true;
-	}
+	return false;
 }
 
 string largest_number(vector<string> a) {
