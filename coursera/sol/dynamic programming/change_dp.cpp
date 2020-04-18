@@ -11,35 +11,39 @@
 #define printed(x,i) cout<< x  <<i<<"\n"
 #define ip(s) vector <s>vec;for(int i=0;i<n;i++){s tmp;cin>>tmp;vec.push_back(tmp);}
 #define vi vector<int>
-#define vpp vector<pair<int,int>>
 #define newl cout<<"\n"
-int min(int a,int b)
-{
-	return a<b;
-}
+#define vpp vector<pair<int,int>>
 using namespace std;
-void rsolve(vector <string> v)
-{
-	
-}
-void solve() 
-{
-	int n;
-	cin>>n;
-	ip(string);
-	rsolve(str);
-}
 
-int main()
-{
 
-	ios_base::sync_with_stdio(0);
-	int num;
-	cin>>num;
-	fo(i,num)
+int get_change(int m,vector<int> dp) 
+{
+	vector<int> deno;
+	p_b(deno,1);
+	p_b(deno,3);
+	p_b(deno,4);	
+	dp[0]=0;
+	for(int i=1;i<=m;i++)
 	{
-    		cout << "Case #" << i << ": ";
-    		solve();
-		cout<<"\n";
+		tr(a,deno)
+			if(i>=a)
+			{
+				//cout<<"for money "<<i<<" coin "<<a;newl;
+				int n=dp[i-a]+1;
+				//cout<<"n is"<<n;newl;
+				if(n<dp[i])
+					dp[i]=n;
+			}
 	}
+	//tr(a,dp)printed(" ",a);newl;
+	return dp[m];
+}
+
+int main() {
+  int m;
+  std::cin >> m;
+  vector<int> dp(m+1,INT_MAX);
+	//tr(a,dp)printed(" ",a);newl;
+  std::cout << get_change(m,dp) << '\n';
+
 }
