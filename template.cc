@@ -38,7 +38,7 @@ int main()
 	cin>>num;
 	fo(i,num)
 	{
-    		cout << "Case #" << i << ": ";
+    		cout << "Case #" << i+1<< ": ";
     		solve();
 		cout<<"\n";
 	}
