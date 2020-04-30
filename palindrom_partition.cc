@@ -14,18 +14,41 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
 using namespace std;
-void rsolve(vi v)
+void rsolve(string str)
 {
-	
+	int n=sz(str);
+	vi dp(n,INT_MAX);
+	vector<vector<bool>> p(n,vector<bool>(n));
+	fo(i,n)
+	{
+		p[i][i]=true;
+	}
+	for(int cl=2;cl<=n;cl++)
+		for(int i=0;i<n-cl+1;i++)
+		{
+			int j=i+cl-1;	
+			if(cl==2)
+				p[i][j]=(str[i] == str[j]);
+			else
+				p[i][j]=(str[i] == str[j])&&p[i+1][j-1];
+			
+		}
+	fo(i,n)
+		if(p[0][i]==true)
+			dp[i]=0;
+		else
+			fo(j,i)
+				if(p[j+1][i]==true &&1+dp[j]<dp[i])
+					dp[i]=1+dp[j];
+	cout<<dp[n-1];
 }
 void solve() 
 {
-	int n;
-	cin>>n;
-	ip(ll);
-	rsolve(vec);
+	string x;
+	cin>>x;
+
+	rsolve(x);
 }
 
 int main()
@@ -36,7 +59,7 @@ int main()
 	cin>>num;
 	fo(i,num)
 	{
-    		cout << "Case #" << i+1<< ": ";
+    		///cout << "Case #" << i+1<< ": ";
     		solve();
 		cout<<"\n";
 	}

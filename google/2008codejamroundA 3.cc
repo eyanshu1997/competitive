@@ -14,18 +14,31 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
-using namespace std;
-void rsolve(vi v)
+int min(int a,int b)
 {
+	return a<b;
+}
+using namespace std;
+double rsolve(ll n)
+{
+	double x= 3+sqrt(5);
+	if(n==0)
+		return 1;
+	return 3.50;
 	
+}
+void pri(double x)
+{
+	double ip,fr;
+	fr=modf(x,&ip);
+	std::cout << std::setfill('0') << std::setw(3) << ip;
+	//cout<<fr*;
 }
 void solve() 
 {
-	int n;
+	ll n;
 	cin>>n;
-	ip(ll);
-	rsolve(vec);
+	pri(rsolve(n));
 }
 
 int main()

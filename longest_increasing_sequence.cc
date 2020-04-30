@@ -14,11 +14,21 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
-using namespace std;
+using namespace std; 
 void rsolve(vi v)
 {
-	
+	vi dp(sz(v));
+	dp[0]=1;
+	fo(i,sz(v))
+	{
+		dp[i]=1;
+		fo(j,sz(v))
+		{
+			if(v[i]>v[j]&&dp[j]+1>dp[i])
+				dp[i]=dp[j]+1;
+		}
+	}
+	cout<<*max_element(all(dp));
 }
 void solve() 
 {
@@ -36,7 +46,6 @@ int main()
 	cin>>num;
 	fo(i,num)
 	{
-    		cout << "Case #" << i+1<< ": ";
     		solve();
 		cout<<"\n";
 	}

@@ -14,30 +14,41 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
 using namespace std;
-void rsolve(vi v)
-{
-	
-}
-void solve() 
-{
-	int n;
-	cin>>n;
-	ip(ll);
-	rsolve(vec);
-}
 
+void solve(vi x,vi y)
+{
+//	op(x) op(y)
+	int ma=*max_element(all(x));
+	//cout<<ma<<"\n";
+	vector<vi> dp(ma+1,vi(ma+1));
+	fo(i,ma+1){
+		dp[i][0]=1;dp[i][i]=1;}
+	dp[0][0]=1;
+	for(int i=1;i<=ma;i++)
+		for(int j=1;j<i;j++)
+		{
+			dp[i][j]=(dp[i-1][j-1]+dp[i-1][j])%1000000007;
+		}
+	//tr(a,dp){op(a)newl;}
+	for(int i=0;i<sz(x);i++)
+	if(x[i]<y[i])
+		cout<<0<<"\n";
+	else
+		cout<<dp[x[i]][y[i]]<<"\n";
+}
 int main()
 {
-
 	ios_base::sync_with_stdio(0);
 	int num;
 	cin>>num;
+	int x,y;
+	vi sx,sy;
 	fo(i,num)
 	{
-    		cout << "Case #" << i+1<< ": ";
-    		solve();
-		cout<<"\n";
+		cin>>x>>y;
+		p_b(sx,x);
+		p_b(sy,y);
 	}
+	solve(sx,sy);
 }

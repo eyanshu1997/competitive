@@ -1,3 +1,5 @@
+//smallest scalar vector sum
+
 #include <bits/stdc++.h>
 #define pp pair<ll,ll>
 #define ll long long int
@@ -14,18 +16,30 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
-using namespace std;
-void rsolve(vi v)
+int min(int a,int b)
 {
-	
+	return a<b;
+}
+using namespace std;
+void rsolve(vi x,vi y)
+{
+	sort(all(x));
+	sort(all(y),greater<int>());
+	ll sum=0;
+	fo(i,sz(x))
+		sum=sum+(x[i]*y[i]);
+	cout<<sum;
 }
 void solve() 
 {
 	int n;
 	cin>>n;
-	ip(ll);
-	rsolve(vec);
+	vi x(n),y(n);
+	fo(i,n)
+		cin>>x[i];
+	fo(i,n)
+		cin>>y[i];
+	rsolve(x,y);
 }
 
 int main()

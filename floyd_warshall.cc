@@ -14,18 +14,38 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
 using namespace std;
-void rsolve(vi v)
+void rsolve(vector<vi> v,int n)
 {
-	
+	vector<vi> dp(v);
+	fo(i,n)
+		fo(j,n)
+			fo(k,n)
+			{
+				if(dp[j][k]>dp[j][i]+dp[i][k]&&dp[j][i]!=INT_MAX&&dp[i][k]!=INT_MAX)
+					dp[j][k]=dp[j][i]+dp[i][k];
+			}
+	tr(a,dp)
+	{
+		tr(x,a)
+			if(x>9999999)
+				cout<<"INF ";
+			else
+				cout<<x<<" ";
+		newl;
+	}
 }
 void solve() 
 {
 	int n;
 	cin>>n;
-	ip(ll);
-	rsolve(vec);
+	vector<vi> vec(n,vi(n,INT_MAX));
+	fo(i,n)
+		fo(j,n)
+		{
+			cin>>vec[i][j];
+		}
+	rsolve(vec,n);
 }
 
 int main()
@@ -36,7 +56,6 @@ int main()
 	cin>>num;
 	fo(i,num)
 	{
-    		cout << "Case #" << i+1<< ": ";
     		solve();
 		cout<<"\n";
 	}

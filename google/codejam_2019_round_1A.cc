@@ -14,9 +14,12 @@
 #define vi vector<ll>
 #define vpp vector<pair<ll,ll>>
 #define newl cout<<"\n"
-#define opa(s) tr(a,s){op(a);newl;}
+int min(int a,int b)
+{
+	return a<b;
+}
 using namespace std;
-void rsolve(vi v)
+void rsolve(vector <string> v)
 {
 	
 }
@@ -24,7 +27,7 @@ void solve()
 {
 	int n;
 	cin>>n;
-	ip(ll);
+	ip(string);
 	rsolve(vec);
 }
 
